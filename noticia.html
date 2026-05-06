@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Como a IA está transformando ferramentas de acessibilidade na web." />
+    <title>Notícia — Blog Acessível</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/accessibility.css" />
+    <link rel="stylesheet" href="css/colorblind.css" />
+</head>
+<body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+        <defs>
+            <filter id="protanopia"><feColorMatrix type="matrix" values="0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0"/></filter>
+            <filter id="deuteranopia"><feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/></filter>
+            <filter id="tritanopia"><feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.433,0.567,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/></filter>
+            <filter id="achromatopsia"><feColorMatrix type="matrix" values="0.299,0.587,0.114,0,0 0.299,0.587,0.114,0,0 0.299,0.587,0.114,0,0 0,0,0,1,0"/></filter>
+        </defs>
+    </svg>
+
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="Blog Acessível, página inicial">
+                <span class="logo-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4V4z"/>
+                        <path d="M8 9h8M8 13h8M8 17h5"/>
+                    </svg>
+                </span>
+                <span class="logo-text"><strong>Blog</strong><span>Acessível</span></span>
+            </a>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="noticias.html" class="active" aria-current="page">Notícias</a></li>
+                </ul>
+            </nav>
+            <button id="open-accessibility" class="btn btn-primary" aria-label="Abrir configurações de acessibilidade">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+                <span>Acessibilidade</span>
+            </button>
+        </div>
+    </header>
+
+    <main id="conteudo-principal">
+        <article class="article">
+            <div class="container article-head">
+                <nav aria-label="Trilha de navegação" class="breadcrumb">
+                    <a href="index.html">Início</a>
+                    <span aria-hidden="true">›</span>
+                    <a href="noticias.html">Notícias</a>
+                    <span aria-hidden="true">›</span>
+                    <span aria-current="page">Tecnologia</span>
+                </nav>
+                <span class="card-tag">Tecnologia</span>
+                <h1>Como a IA está transformando ferramentas de acessibilidade na web</h1>
+                <p class="article-lead">
+                    Modelos de linguagem agora descrevem imagens em tempo real e geram legendas com precisão jamais vista,
+                    abrindo novas possibilidades para usuários com baixa visão e leitores de tela.
+                </p>
+                <div class="article-meta">
+                    <span>Por <strong>Redação</strong></span>
+                    <span>·</span>
+                    <time datetime="2026-05-04">04 de maio de 2026</time>
+                    <span>·</span>
+                    <span>6 min de leitura</span>
+                    <button class="btn-read" data-read-target="article-body" aria-label="Ouvir artigo em voz alta">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+                        Ouvir artigo
+                    </button>
+                </div>
+            </div>
+
+            <div class="container article-layout">
+                <div class="article-body" id="article-body">
+                    <div class="article-cover art-1" aria-hidden="true"></div>
+
+                    <p>Nos últimos cinco anos, ferramentas de inteligência artificial deixaram de ser uma promessa para se tornarem
+                    parte essencial das tecnologias assistivas. Em 2026, descrições automáticas de imagens, transcrição de áudio
+                    em tempo real e simplificação de textos complexos já são recursos integrados aos principais navegadores.</p>
+
+                    <h2>Descrição automática de imagens</h2>
+                    <p>Antes restrita a aplicativos específicos, a descrição de imagens agora pode ser ativada diretamente no navegador.
+                    Modelos rodam em segundo plano e geram textos alternativos contextualizados — explicando não só o que aparece na
+                    imagem, mas a relação entre os elementos. Para quem usa leitor de tela, isso muda completamente a experiência
+                    de navegar em sites de notícias e redes sociais.</p>
+
+                    <blockquote>
+                        <p>"Pela primeira vez consigo entender memes e gráficos sem depender de alguém para me explicar.
+                        É uma forma diferente de existir online", relata Mariana Costa, designer com baixa visão.</p>
+                    </blockquote>
+
+                    <h2>Leitura em voz alta com vozes naturais</h2>
+                    <p>A Web Speech API recebeu vozes neurais em português brasileiro com qualidade próxima à humana.
+                    Combinada com extensões de leitura, qualquer artigo pode ser ouvido em ritmo personalizado, com
+                    destaque visual da palavra que está sendo falada — recurso valioso para pessoas com dislexia ou
+                    cansaço visual após longas horas de leitura.</p>
+
+                    <h2>Simplificação de linguagem</h2>
+                    <p>Textos jurídicos, médicos e científicos podem ser reescritos automaticamente em linguagem simples,
+                    sem perder a essência. Isso amplia o acesso à informação para pessoas com diferentes níveis de
+                    escolaridade e para quem está aprendendo português como segunda língua.</p>
+
+                    <h2>O que vem por aí</h2>
+                    <p>Pesquisadores trabalham em interfaces multimodais que combinam voz, gestos e olhar. A meta é
+                    permitir que cada pessoa configure o navegador conforme suas necessidades — algo que blogs como
+                    este já implementam de forma simplificada, com painéis de acessibilidade visíveis logo na entrada.</p>
+
+                    <p>O caminho ainda é longo, mas o ritmo dos avanços indica que, em breve, sites inacessíveis serão
+                    a exceção, não a regra. E isso é uma boa notícia para todos.</p>
+                </div>
+
+                <aside class="sidebar" aria-label="Conteúdo complementar">
+                    <div class="widget">
+                        <h2 class="widget-title">Postagens recentes</h2>
+                        <ul class="widget-list">
+                            <li><a href="noticia.html"><span class="widget-date">02 mai</span><span class="widget-text">Pesquisa aponta avanços no tratamento de degeneração macular</span></a></li>
+                            <li><a href="noticia.html"><span class="widget-date">30 abr</span><span class="widget-text">Padrão WCAG 3.0 traz mudanças importantes para sites públicos</span></a></li>
+                            <li><a href="noticia.html"><span class="widget-date">25 abr</span><span class="widget-text">Web Speech API: o que mudou nos navegadores em 2026</span></a></li>
+                            <li><a href="noticia.html"><span class="widget-date">20 abr</span><span class="widget-text">Universidades adotam material didático em formato acessível</span></a></li>
+                            <li><a href="noticia.html"><span class="widget-date">15 abr</span><span class="widget-text">Catarata: campanha gratuita atende mais de 50 mil idosos</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget widget-cta">
+                        <h2 class="widget-title">Personalize a leitura</h2>
+                        <p>Ative recursos de acessibilidade a qualquer momento.</p>
+                        <button class="btn btn-primary btn-block" id="open-accessibility-2">Configurar agora</button>
+                    </div>
+                </aside>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div>
+                <strong>Blog Acessível</strong>
+                <p>Notícias claras, para todas as pessoas. © 2026.</p>
+            </div>
+            <nav aria-label="Rodapé">
+                <a href="index.html">Início</a>
+                <a href="noticias.html">Notícias</a>
+                <button class="link-button" id="open-accessibility-3">Acessibilidade</button>
+            </nav>
+        </div>
+    </footer>
+
+    <div id="a11y-modal" class="a11y-modal" role="dialog" aria-modal="true" aria-labelledby="a11y-title" aria-describedby="a11y-desc" hidden>
+        <div class="a11y-backdrop" data-close></div>
+        <div class="a11y-panel" role="document">
+            <header class="a11y-panel-head">
+                <div>
+                    <span class="eyebrow">Bem-vindo(a)</span>
+                    <h2 id="a11y-title">Configurações de acessibilidade</h2>
+                    <p id="a11y-desc">Ative apenas o que precisar. Suas preferências ficam salvas neste navegador.</p>
+                </div>
+                <button class="a11y-close" data-close aria-label="Fechar configurações de acessibilidade">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+            </header>
+            <div class="a11y-panel-body">
+                <fieldset class="a11y-group">
+                    <legend>Tamanho do texto</legend>
+                    <div class="a11y-segments" role="radiogroup" aria-label="Tamanho do texto">
+                        <button class="a11y-seg" data-font="100" role="radio" aria-checked="true">A <small>padrão</small></button>
+                        <button class="a11y-seg" data-font="115" role="radio" aria-checked="false">A+ <small>maior</small></button>
+                        <button class="a11y-seg" data-font="130" role="radio" aria-checked="false">A++ <small>grande</small></button>
+                        <button class="a11y-seg" data-font="150" role="radio" aria-checked="false">A+++ <small>extra</small></button>
+                    </div>
+                </fieldset>
+                <fieldset class="a11y-group">
+                    <legend>Contraste e cor</legend>
+                    <div class="a11y-options">
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="dark-mode" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Modo escuro</strong><small>Reduz fadiga visual</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="high-contrast" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Alto contraste</strong><small>Preto e amarelo</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="invert" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Inverter cores</strong><small>Negativo da página</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="saturate" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Saturação alta</strong><small>Cores mais vivas</small></span></label>
+                    </div>
+                </fieldset>
+                <fieldset class="a11y-group">
+                    <legend>Filtros para daltonismo</legend>
+                    <div class="a11y-segments" role="radiogroup" aria-label="Filtro para daltonismo">
+                        <button class="a11y-seg" data-cb="none" role="radio" aria-checked="true">Nenhum</button>
+                        <button class="a11y-seg" data-cb="protanopia" role="radio" aria-checked="false">Protanopia <small>vermelho</small></button>
+                        <button class="a11y-seg" data-cb="deuteranopia" role="radio" aria-checked="false">Deuteranopia <small>verde</small></button>
+                        <button class="a11y-seg" data-cb="tritanopia" role="radio" aria-checked="false">Tritanopia <small>azul</small></button>
+                        <button class="a11y-seg" data-cb="achromatopsia" role="radio" aria-checked="false">Acromatopsia <small>preto e branco</small></button>
+                    </div>
+                </fieldset>
+                <fieldset class="a11y-group">
+                    <legend>Leitura</legend>
+                    <div class="a11y-options">
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="readable-font" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Fonte legível</strong><small>Atkinson Hyperlegible</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="line-spacing" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Espaçamento amplo</strong><small>Linhas mais arejadas</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="letter-spacing" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Espaço entre letras</strong><small>Texto mais aberto</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="highlight-links" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Destacar links</strong><small>Sublinhado e cor</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="reading-guide" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Guia de leitura</strong><small>Régua acompanha o cursor</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="tts" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Leitor em voz alta</strong><small>Selecione texto e ouça</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="hover-tts" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Ler ao passar o mouse</strong><small>Lê palavras e frases em tempo real</small></span></label>
+                    </div>
+                </fieldset>
+                <fieldset class="a11y-group">
+                    <legend>Movimento</legend>
+                    <div class="a11y-options">
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="reduce-motion" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Reduzir animações</strong><small>Para sensibilidade vestibular</small></span></label>
+                        <label class="a11y-toggle"><input type="checkbox" data-toggle="big-cursor" /><span class="a11y-toggle-ui"></span><span class="a11y-toggle-label"><strong>Cursor grande</strong><small>Mais fácil de ver</small></span></label>
+                    </div>
+                </fieldset>
+            </div>
+            <footer class="a11y-panel-foot">
+                <button id="a11y-reset" class="btn btn-ghost">Restaurar padrão</button>
+                <button id="a11y-save" class="btn btn-primary" data-close>Salvar e continuar</button>
+            </footer>
+        </div>
+    </div>
+
+    <div id="reading-guide" class="reading-guide" hidden></div>
+
+    <button id="tts-fab" class="tts-fab" hidden aria-label="Ler conteúdo selecionado em voz alta">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"/></svg>
+        <span>Ouvir seleção</span>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

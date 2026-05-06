@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blog de notícias com recursos completos de acessibilidade para baixa visão, daltonismo e leitores de tela." />
+    <title>Blog Acessível — Notícias para todos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/accessibility.css" />
+    <link rel="stylesheet" href="css/colorblind.css" />
+</head>
+<body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Filtros SVG para daltonismo -->
+    <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+        <defs>
+            <filter id="protanopia"><feColorMatrix type="matrix" values="0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0"/></filter>
+            <filter id="deuteranopia"><feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/></filter>
+            <filter id="tritanopia"><feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.433,0.567,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/></filter>
+            <filter id="achromatopsia"><feColorMatrix type="matrix" values="0.299,0.587,0.114,0,0 0.299,0.587,0.114,0,0 0.299,0.587,0.114,0,0 0,0,0,1,0"/></filter>
+        </defs>
+    </svg>
+
+    <!-- Cabeçalho -->
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" aria-label="Blog Acessível, página inicial">
+                <span class="logo-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4V4z"/>
+                        <path d="M8 9h8M8 13h8M8 17h5"/>
+                    </svg>
+                </span>
+                <span class="logo-text">
+                    <strong>Blog</strong>
+                    <span>Acessível</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html" class="active" aria-current="page">Início</a></li>
+                    <li><a href="noticias.html">Notícias</a></li>
+                </ul>
+            </nav>
+
+            <button id="open-accessibility" class="btn btn-primary" aria-label="Abrir configurações de acessibilidade">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+                </svg>
+                <span>Acessibilidade</span>
+            </button>
+        </div>
+    </header>
+
+    <main id="conteudo-principal">
+        <!-- Hero -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <span class="eyebrow">Notícias com acessibilidade total</span>
+                    <h1 id="hero-title">Informação clara, para <span class="accent">todas as pessoas</span>.</h1>
+                    <p class="lead">
+                        Um blog pensado para baixa visão, visão parcial, daltonismo e pessoas idosas.
+                        Personalize sua experiência com leitura em voz alta, contraste alto e tipografia ampliada.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="noticias.html" class="btn btn-primary btn-lg">Ler as notícias</a>
+                        <button id="open-accessibility-2" class="btn btn-outline btn-lg">Configurar acessibilidade</button>
+                    </div>
+                </div>
+                <div class="hero-card" aria-hidden="true">
+                    <div class="hero-card-glow"></div>
+                    <div class="hero-card-inner">
+                        <div class="hero-feature">
+                            <span class="hero-feature-icon">A</span>
+                            <div><strong>Tipografia ampliada</strong><span>Leitura confortável</span></div>
+                        </div>
+                        <div class="hero-feature">
+                            <span class="hero-feature-icon">◐</span>
+                            <div><strong>Alto contraste</strong><span>Foco no texto</span></div>
+                        </div>
+                        <div class="hero-feature">
+                            <span class="hero-feature-icon">♪</span>
+                            <div><strong>Leitura em voz</strong><span>Web Speech API</span></div>
+                        </div>
+                        <div class="hero-feature">
+                            <span class="hero-feature-icon">◉</span>
+                            <div><strong>Filtros para daltonismo</strong><span>4 modos disponíveis</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destaques -->
+        <section class="section" aria-labelledby="destaques-title">
+            <div class="container">
+                <div class="section-head">
+                    <h2 id="destaques-title">Em destaque</h2>
+                    <a href="noticias.html" class="link-arrow">Ver todas <span aria-hidden="true">→</span></a>
+                </div>
+
+                <div class="featured-grid">
+                    <article class="card card-feature">
+                        <div class="card-media" aria-hidden="true">
+                            <div class="card-art art-1">
+                                <span class="card-tag">Tecnologia</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-meta"><time datetime="2026-05-04">04 de maio de 2026</time> · 6 min de leitura</span>
+                            <h3><a href="noticia.html">Como a IA está transformando ferramentas de acessibilidade na web</a></h3>
+                            <p>Modelos de linguagem agora descrevem imagens em tempo real e geram legendas com precisão jamais vista, abrindo novas possibilidades para usuários com baixa visão.</p>
+                            <button class="btn-read" data-read-target="featured-1" aria-label="Ouvir resumo desta notícia">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+                                Ouvir
+                            </button>
+                            <p class="sr-only" id="featured-1">Modelos de linguagem agora descrevem imagens em tempo real e geram legendas com precisão jamais vista.</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-media" aria-hidden="true">
+                            <div class="card-art art-2"><span class="card-tag">Saúde</span></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-meta"><time datetime="2026-05-02">02 de maio de 2026</time> · 4 min</span>
+                            <h3><a href="noticia.html">Pesquisa aponta avanços no tratamento de degeneração macular</a></h3>
+                            <p>Novo estudo brasileiro mostra resultados promissores para preservar a visão central em idosos.</p>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-media" aria-hidden="true">
+                            <div class="card-art art-3"><span class="card-tag">Sociedade</span></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-meta"><time datetime="2026-04-30">30 de abril de 2026</time> · 5 min</span>
+                            <h3><a href="noticia.html">Padrão WCAG 3.0 traz mudanças importantes para sites públicos</a></h3>
+                            <p>Diretrizes ampliam critérios de contraste e movimento, beneficiando milhões de usuários.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos -->
+        <section class="section section-alt" aria-labelledby="recursos-title">
+            <div class="container">
+                <div class="section-head center">
+                    <h2 id="recursos-title">Recursos pensados para você</h2>
+                    <p>Configure o blog do jeito que faz sentido para sua leitura.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">A+</div>
+                        <h3>Tamanho do texto</h3>
+                        <p>Quatro níveis de tipografia, do padrão ao extra grande, ideal para baixa visão.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">◐</div>
+                        <h3>Contraste alto</h3>
+                        <p>Modo de alto contraste preto e amarelo, seguindo recomendações para visão parcial.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🌙</div>
+                        <h3>Modo escuro</h3>
+                        <p>Reduz fadiga visual em ambientes com pouca luz, especialmente útil para idosos.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">◉</div>
+                        <h3>Daltonismo</h3>
+                        <p>Filtros para protanopia, deuteranopia, tritanopia e acromatopsia.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">♪</div>
+                        <h3>Leitura em voz alta</h3>
+                        <p>Selecione qualquer texto e ouça a narração com a Web Speech API.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">⌨</div>
+                        <h3>Navegação por teclado</h3>
+                        <p>Foco visível e atalhos para quem usa apenas o teclado ou tecnologias assistivas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div>
+                <strong>Blog Acessível</strong>
+                <p>Notícias claras, para todas as pessoas. © 2026.</p>
+            </div>
+            <nav aria-label="Rodapé">
+                <a href="index.html">Início</a>
+                <a href="noticias.html">Notícias</a>
+                <button class="link-button" id="open-accessibility-3">Acessibilidade</button>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Popup de acessibilidade -->
+    <div id="a11y-modal" class="a11y-modal" role="dialog" aria-modal="true" aria-labelledby="a11y-title" aria-describedby="a11y-desc" hidden>
+        <div class="a11y-backdrop" data-close></div>
+        <div class="a11y-panel" role="document">
+            <header class="a11y-panel-head">
+                <div>
+                    <span class="eyebrow">Bem-vindo(a)</span>
+                    <h2 id="a11y-title">Configurações de acessibilidade</h2>
+                    <p id="a11y-desc">Ative apenas o que precisar. Suas preferências ficam salvas neste navegador.</p>
+                </div>
+                <button class="a11y-close" data-close aria-label="Fechar configurações de acessibilidade">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+            </header>
+
+            <div class="a11y-panel-body">
+                <fieldset class="a11y-group">
+                    <legend>Tamanho do texto</legend>
+                    <div class="a11y-segments" role="radiogroup" aria-label="Tamanho do texto">
+                        <button class="a11y-seg" data-font="100" role="radio" aria-checked="true">A <small>padrão</small></button>
+                        <button class="a11y-seg" data-font="115" role="radio" aria-checked="false">A+ <small>maior</small></button>
+                        <button class="a11y-seg" data-font="130" role="radio" aria-checked="false">A++ <small>grande</small></button>
+                        <button class="a11y-seg" data-font="150" role="radio" aria-checked="false">A+++ <small>extra</small></button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="a11y-group">
+                    <legend>Contraste e cor</legend>
+                    <div class="a11y-options">
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="dark-mode" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Modo escuro</strong><small>Reduz fadiga visual</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="high-contrast" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Alto contraste</strong><small>Preto e amarelo</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="invert" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Inverter cores</strong><small>Negativo da página</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="saturate" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Saturação alta</strong><small>Cores mais vivas</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="a11y-group">
+                    <legend>Filtros para daltonismo</legend>
+                    <div class="a11y-segments" role="radiogroup" aria-label="Filtro para daltonismo">
+                        <button class="a11y-seg" data-cb="none" role="radio" aria-checked="true">Nenhum</button>
+                        <button class="a11y-seg" data-cb="protanopia" role="radio" aria-checked="false">Protanopia <small>vermelho</small></button>
+                        <button class="a11y-seg" data-cb="deuteranopia" role="radio" aria-checked="false">Deuteranopia <small>verde</small></button>
+                        <button class="a11y-seg" data-cb="tritanopia" role="radio" aria-checked="false">Tritanopia <small>azul</small></button>
+                        <button class="a11y-seg" data-cb="achromatopsia" role="radio" aria-checked="false">Acromatopsia <small>preto e branco</small></button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="a11y-group">
+                    <legend>Leitura</legend>
+                    <div class="a11y-options">
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="readable-font" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Fonte legível</strong><small>Atkinson Hyperlegible</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="line-spacing" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Espaçamento amplo</strong><small>Linhas mais arejadas</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="letter-spacing" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Espaço entre letras</strong><small>Texto mais aberto</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="highlight-links" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Destacar links</strong><small>Sublinhado e cor</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="reading-guide" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Guia de leitura</strong><small>Régua acompanha o cursor</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="tts" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Leitor em voz alta</strong><small>Selecione texto e ouça</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="hover-tts" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Ler ao passar o mouse</strong><small>Lê palavras e frases em tempo real</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="a11y-group">
+                    <legend>Movimento</legend>
+                    <div class="a11y-options">
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="reduce-motion" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Reduzir animações</strong><small>Para sensibilidade vestibular</small></span>
+                        </label>
+                        <label class="a11y-toggle">
+                            <input type="checkbox" data-toggle="big-cursor" />
+                            <span class="a11y-toggle-ui"></span>
+                            <span class="a11y-toggle-label"><strong>Cursor grande</strong><small>Mais fácil de ver</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+
+            <footer class="a11y-panel-foot">
+                <button id="a11y-reset" class="btn btn-ghost">Restaurar padrão</button>
+                <button id="a11y-save" class="btn btn-primary" data-close>Salvar e continuar</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Régua de leitura -->
+    <div id="reading-guide" class="reading-guide" hidden></div>
+
+    <!-- Botão flutuante TTS -->
+    <button id="tts-fab" class="tts-fab" hidden aria-label="Ler conteúdo selecionado em voz alta">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"/></svg>
+        <span>Ouvir seleção</span>
+    </button>
+
+    <!-- Howler para feedback sonoro -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
