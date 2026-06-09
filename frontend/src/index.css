@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-gray-900 font-sans;
+  }
+}
+
+/* ── Skip link ─────────────────────────────────────────────────────────── */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  background: #2563eb;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  z-index: 10000;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: top 160ms ease;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; color: #fff; }
+
+/* ── Escala de fonte ───────────────────────────────────────────────────── */
+html.font-115 { font-size: 115%; }
+html.font-130 { font-size: 130%; }
+html.font-150 { font-size: 150%; }
+
+/* ── Daltonismo ────────────────────────────────────────────────────────── */
+html.cb-protanopia    { filter: url(#protanopia); }
+html.cb-deuteranopia  { filter: url(#deuteranopia); }
+html.cb-tritanopia    { filter: url(#tritanopia); }
+html.cb-achromatopsia { filter: url(#achromatopsia); }
+html.cb-protanopia.invert    { filter: url(#protanopia) invert(1) hue-rotate(180deg); }
+html.cb-deuteranopia.invert  { filter: url(#deuteranopia) invert(1) hue-rotate(180deg); }
+html.cb-tritanopia.invert    { filter: url(#tritanopia) invert(1) hue-rotate(180deg); }
+html.cb-achromatopsia.invert { filter: url(#achromatopsia) invert(1) hue-rotate(180deg); }
+html[class*="cb-"] .a11y-modal { filter: none !important; }
+
+/* ── Modo escuro ───────────────────────────────────────────────────────── */
+body.dark-mode {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+}
+body.dark-mode header  { background-color: #020617 !important; }
+body.dark-mode footer  { background-color: #020617 !important; }
+body.dark-mode .bg-white, body.dark-mode [class*="bg-slate-50"]  { background-color: #1e293b !important; }
+body.dark-mode [class*="bg-slate-100"], body.dark-mode [class*="bg-gray-100"] { background-color: #334155 !important; }
+body.dark-mode [class*="bg-gray-50"]  { background-color: #1e293b !important; }
+body.dark-mode [class*="text-gray-900"] { color: #f1f5f9 !important; }
+body.dark-mode [class*="text-gray-700"] { color: #e2e8f0 !important; }
+body.dark-mode [class*="text-gray-600"] { color: #cbd5e1 !important; }
+body.dark-mode [class*="text-gray-500"] { color: #94a3b8 !important; }
+body.dark-mode [class*="text-gray-400"] { color: #64748b !important; }
+
+/* ── Alto contraste ────────────────────────────────────────────────────── */
+body.high-contrast {
+  background: #000 !important;
+  color: #ff0 !important;
+}
+body.high-contrast *:not(.a11y-modal *) {
+  background-color: #000 !important;
+  color: #ff0 !important;
+  border-color: #ff0 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+body.high-contrast a,
+body.high-contrast button { color: #ff0 !important; }
+body.high-contrast img { filter: grayscale(100%) contrast(200%); }
+
+/* ── Inverter / saturar ────────────────────────────────────────────────── */
+html.invert { filter: invert(1) hue-rotate(180deg); }
+html.invert img, html.invert video { filter: invert(1) hue-rotate(180deg); }
+html.saturate { filter: saturate(1.6); }
+html.saturate.invert { filter: invert(1) hue-rotate(180deg) saturate(1.6); }
+
+/* ── Fonte legível ─────────────────────────────────────────────────────── */
+body.readable-font, body.readable-font * {
+  font-family: "Atkinson Hyperlegible", "Verdana", sans-serif !important;
+  letter-spacing: 0.01em;
+}
+
+/* ── Espaçamento ───────────────────────────────────────────────────────── */
+body.line-spacing, body.line-spacing p, body.line-spacing li { line-height: 2 !important; }
+body.letter-spacing, body.letter-spacing * { letter-spacing: 0.08em !important; word-spacing: 0.16em !important; }
+
+/* ── Links destacados ──────────────────────────────────────────────────── */
+body.highlight-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  background: #dbeafe !important;
+  padding: 1px 3px !important;
+  border-radius: 3px !important;
+}
+
+/* ── Reduzir movimento ─────────────────────────────────────────────────── */
+body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ── Cursor grande ─────────────────────────────────────────────────────── */
+body.big-cursor, body.big-cursor * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><path d='M2 2 L2 30 L9 23 L13 33 L18 31 L14 21 L24 21 Z' fill='%23ffff00' stroke='%23000' stroke-width='2'/></svg>") 2 2, auto !important;
+}
+
+/* ── TTS FAB ───────────────────────────────────────────────────────────── */
+.tts-fab {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 9997;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+  cursor: pointer;
+  border: none;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+.tts-fab:hover { transform: translateY(-2px); background: #1d4ed8; }
+.tts-fab.is-playing { background: #0f172a; }
+
+/* ── A11y Modal ────────────────────────────────────────────────────────── */
+.a11y-toggle-ui {
+  flex-shrink: 0;
+  width: 44px; height: 26px;
+  background: #cbd5e1;
+  border-radius: 9999px;
+  position: relative;
+  transition: background-color 160ms ease;
+}
+.a11y-toggle-ui::after {
+  content: "";
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 20px; height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 160ms ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.a11y-toggle input:checked + .a11y-toggle-ui { background: #2563eb; }
+.a11y-toggle input:checked + .a11y-toggle-ui::after { transform: translateX(18px); }
+.a11y-toggle input:focus-visible + .a11y-toggle-ui {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+.a11y-toggle input { position: absolute; opacity: 0; pointer-events: none; }
