@@ -1,0 +1,26 @@
+# Variáveis de ambiente (NUNCA commitar segredos)
+.env
+*.local
+
+# Dependências
+node_modules/
+
+# Build / artefatos
+dist/
+build/
+build_slides/
+*.pptx
+
+# Binários Go
+api/api
+api/main
+*.exe
+
+# Logs
+*.log
+
+# Sistema operacional / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

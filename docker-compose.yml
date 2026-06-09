@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: blognews_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-blognews}
+      POSTGRES_USER: ${POSTGRES_USER:-blognews}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-blognews_secret}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-blognews} -d ${POSTGRES_DB:-blognews}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: blognews_api
+    restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    environment:
+      PORT: 3001
+      DATABASE_URL: postgresql://${POSTGRES_USER:-blognews}:${POSTGRES_PASSWORD:-blognews_secret}@postgres:5432/${POSTGRES_DB:-blognews}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      API_SECRET_KEY: ${API_SECRET_KEY:-blognews_api_key_2026}
+      TZ: America/Sao_Paulo
+      CRON_SCHEDULE_MORNING: "0 10 * * *"
+      CRON_SCHEDULE_EVENING: "0 18 * * *"
+    ports:
+      - "3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: blognews_frontend
+    restart: unless-stopped
+    ports:
+      - "85:80"
+    depends_on:
+      api:
+        condition: service_started
+
+volumes:
+  postgres_data:
