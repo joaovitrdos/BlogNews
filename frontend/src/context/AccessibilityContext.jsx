@@ -67,6 +67,7 @@ export function AccessibilityProvider({ children }) {
   const [prefs, setPrefs] = useState(loadPrefs);
   const [modalOpen, setModalOpen] = useState(false);
   const [ttsCurrentKey, setTtsCurrentKey] = useState(null);
+  const [ttsSource, setTtsSource] = useState(null);
   const [selectedText, setSelectedText] = useState('');
 
   function saveAndSet(newPrefs) {
@@ -110,6 +111,7 @@ export function AccessibilityProvider({ children }) {
     const synth = window.speechSynthesis;
     if (synth && (synth.speaking || synth.pending)) synth.cancel();
     setTtsCurrentKey(null);
+    setTtsSource(null);
   }, []);
 
   const ttsSpeak = useCallback((text, key, opts = {}) => {
@@ -123,10 +125,11 @@ export function AccessibilityProvider({ children }) {
     utt.rate = opts.rate || 1;
     utt.pitch = opts.pitch || 1;
     utt.volume = opts.volume || 1;
-    utt.onend = () => setTtsCurrentKey(null);
-    utt.onerror = () => setTtsCurrentKey(null);
+    utt.onend = () => { setTtsCurrentKey(null); setTtsSource(null); };
+    utt.onerror = () => { setTtsCurrentKey(null); setTtsSource(null); };
     const k = key || text.substring(0, 24);
     setTtsCurrentKey(k);
+    setTtsSource(opts.source || 'button');
     synth.speak(utt);
   }, [ttsStop]);
 
@@ -170,7 +173,7 @@ export function AccessibilityProvider({ children }) {
     <AccessibilityContext.Provider value={{
       prefs, modalOpen, openModal, closeModal,
       setFont, setColorblind, setToggle, reset,
-      ttsSpeak, ttsStop, ttsCurrentKey,
+      ttsSpeak, ttsStop, ttsCurrentKey, ttsSource,
       selectedText, setSelectedText,
     }}>
       {children}

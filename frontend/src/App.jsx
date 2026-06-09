@@ -67,7 +67,7 @@ function getSentenceAtPoint(x, y, fallbackEl) {
 }
 
 function AppInner() {
-  const { prefs, ttsSpeak, ttsStop, ttsCurrentKey, selectedText, setSelectedText } = useAccessibility();
+  const { prefs, ttsSpeak, ttsStop, ttsCurrentKey, ttsSource, selectedText, setSelectedText } = useAccessibility();
   const hoverTimerRef = useRef(null);
   const lastHoverKeyRef = useRef('');
 
@@ -83,7 +83,7 @@ function AppInner() {
       clearTimeout(hoverTimerRef.current);
       hoverTimerRef.current = setTimeout(() => {
         lastHoverKeyRef.current = result.key;
-        ttsSpeak(result.text, result.key, { rate: 1.05 });
+        ttsSpeak(result.text, result.key, { rate: 1.05, source: 'hover' });
       }, HOVER_DELAY);
     };
     const onLeave = (e) => { if (!e.relatedTarget) { clearTimeout(hoverTimerRef.current); } };
@@ -102,12 +102,14 @@ function AppInner() {
   function handleFab() {
     if (isPlaying) { ttsStop(); return; }
     if (selectedText) {
-      ttsSpeak(selectedText, 'fab');
+      ttsSpeak(selectedText, 'fab', { source: 'selection' });
       setSelectedText('');
     }
   }
 
-  const showFab = prefs.toggles['tts'] && !!selectedText;
+  // O FAB serve só à leitura de SELEÇÃO. Não deve aparecer durante o
+  // "Ler ao passar o mouse" (hover) nem nos botões Ouvir de card/artigo.
+  const showFab = prefs.toggles['tts'] && (!!selectedText || (isPlaying && ttsSource === 'selection'));
 
   return (
     <>
@@ -138,7 +140,7 @@ function AppInner() {
       <AccessibilityModal />
 
       {/* TTS FAB */}
-      {(showFab || isPlaying) && (
+      {showFab && (
         <button
           className={`tts-fab${isPlaying ? ' is-playing' : ''}`}
           onClick={handleFab}
